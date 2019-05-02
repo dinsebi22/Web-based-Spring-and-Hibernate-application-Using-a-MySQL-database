@@ -1,0 +1,7 @@
+* {
+        margin: 0;
+    }
+    canvas {
+        display: block;
+        background-color: #F1EDE3;
+    }

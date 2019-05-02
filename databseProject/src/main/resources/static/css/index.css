@@ -1,0 +1,25 @@
+body{
+    margin:0;
+    background-color: black;
+}
+
+#particles-js1 , #particles-js2{
+    position: absolute;
+    width: 100vw;
+    height:100vh;
+    overflow: hidden;
+    margin:0;
+
+    background-color: transparent;
+}
+
+#registrationForm{
+    background-color: #ffffff;
+    position: absolute;
+    top:20vh;
+    left:20vw;
+    right:auto;
+    padding:20px;
+    border-radius: 3%;
+}
+

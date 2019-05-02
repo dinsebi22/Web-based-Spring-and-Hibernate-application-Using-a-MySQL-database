@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/demo/">Back To Start</a>
+    </nav>
+
+    <div class="container pt-3">
+
+        <div id="rowOfData" class="row ">
+
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
+
+    <script th:inline="javascript">
+
+        //====================================================================== 
+        //==========================IMPORTANT  ========================== 
+        //====================================================================== 
+        var userL = JSON.parse('[[${ userList }]]');
+        console.log(userL);
+        //====================================================================== 
+        //==========================IMPORTANT  ========================== 
+        //====================================================================== 
+
+
+        for (var i = 0; i < userL.length; i++) {
+
+
+            var userCard = document.createElement("div");
+            var userImage = document.createElement("img");
+            var userCardBody = document.createElement("div");
+            var userFirstName = document.createElement("h5")
+            var userLastName = document.createElement("h5")
+            var userEmailName = document.createElement("h5")
+            var separatingLine = document.createElement("hr")
+
+            userCard.classList.add("col-md-3", "card", "text-white", "bg-dark", "text-center", "p-0");
+            userFirstName.classList.add("card-title", "m-1");
+            userLastName.classList.add("card-title", "m-1");
+            userEmailName.classList.add("card-title", "m-1");
+            userCardBody.classList.add("card-body");
+            userImage.classList.add("card-imd-top", "img-fluid")
+            userImage.setAttribute("src", ("https://source.unsplash.com/collection/"+(i+1)+"/1600x900"));
+
+            userFirstName.innerHTML = userL[i].f_name;
+            userLastName.innerHTML = userL[i].l_name;
+            userEmailName.innerHTML = userL[i].email;
+
+            userCard.appendChild(userImage);
+            userCard.appendChild(userCardBody);
+            userCardBody.appendChild(userFirstName);
+            userCardBody.appendChild(userLastName);
+            userLastName.appendChild(separatingLine);
+            userCardBody.appendChild(userEmailName);
+
+            document.getElementById("rowOfData").appendChild(userCard);
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
