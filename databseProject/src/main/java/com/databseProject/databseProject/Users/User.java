@@ -14,20 +14,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @NotNull
-    @Size(min = 2 , max = 50)
+    
     private String f_name;
 
-    @NotNull
-    @Size(min = 2 , max = 50)
     private String l_name;
 
-    @NotNull
-    @Email
     private String email;
 
-    @NotNull
     private String password;
 
 
